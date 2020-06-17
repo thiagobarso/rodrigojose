@@ -34,6 +34,12 @@
                     <%--                    <a href="viewusers.jsp">View All Records</a><br/>--%>
                 </div>
 
+                <c:if test="${param.msg != null}">
+                    <div class="alert ${param.role}" role="alert">
+                        <c:out value="${param.msg}" />
+                    </div>
+                </c:if>
+
                 <%
                     List<Usuario> list = UsuarioDao.getAllRecords();
                     request.setAttribute("list", list);
@@ -46,8 +52,9 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Perfil</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                        <th>Ativar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -70,6 +77,15 @@
                             </td>
                             <td>
                                 <a href="deleteuser.jsp?id=${u.getId()}">Delete</a>
+                            </td>
+                            <td>
+                                <c:if test="${u.getAtivo() eq true}">
+                                    <a class="btn btn-secondary" href="ativaruser.jsp?id=${u.getId()}&valor=false">desativar</a>
+                                </c:if>
+                                <c:if test="${u.getAtivo() eq false}">
+                                    <a class="btn btn-success" href="ativaruser.jsp?id=${u.getId()}&valor=true">ativar</a>
+                                </c:if>
+
                             </td>
                         </tr>
                     </c:forEach>

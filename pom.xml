@@ -90,7 +90,6 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
-                        <!--            <serverXml>${basedir}/tomcat7-maven-plugin/server.xml</serverXml>-->
                         <contextFile>${basedir}/tomcat7-maven-plugin/context.xml</contextFile>
                     </configuration>
                     <dependencies>

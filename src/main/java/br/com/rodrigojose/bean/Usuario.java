@@ -8,6 +8,8 @@ public class Usuario {
 
     private Integer perfil;
 
+    private Boolean ativo;
+
     public int getId() {
         return id;
     }
@@ -54,5 +56,13 @@ public class Usuario {
 
     public void setPerfil(Integer perfil) {
         this.perfil = perfil;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 }

@@ -8,11 +8,15 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
         version="2.4">
     <display-name>Archetype Created Web Application</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Admin</web-resource-name>
-            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>/private/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>admin_role</role-name>
@@ -21,10 +25,27 @@
 
     <security-constraint>
         <web-resource-collection>
+            <web-resource-name>operador</web-resource-name>
+            <url-pattern>/operador/index.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>operador_role</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
             <web-resource-name>Public</web-resource-name>
             <description>Matches a few special pages.</description>
             <url-pattern>/login.jsp</url-pattern>
+            <url-pattern>/login_error.jsp</url-pattern>
             <url-pattern>/public/*</url-pattern>
+            <url-pattern>/bootstrap/*</url-pattern>
             <url-pattern>/index.jsp</url-pattern>
         </web-resource-collection>
         <!-- No auth-constraint means everybody has access! -->
@@ -32,6 +53,10 @@
 
     <security-role>
         <role-name>admin_role</role-name>
+    </security-role>
+
+    <security-role>
+        <role-name>operador_role</role-name>
     </security-role>
 
     <login-config>

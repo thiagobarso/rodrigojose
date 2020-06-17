@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
@@ -21,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../usuario/viewusers.jsp">
+                <a class="nav-link" href="<c:url value='/public/usuario/viewusers.jsp' />">
                     <span data-feather="users"></span>
                     Usuários
                 </a>

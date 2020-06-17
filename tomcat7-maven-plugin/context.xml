@@ -12,7 +12,6 @@
 
 <Realm className="org.apache.catalina.realm.DataSourceRealm"
        dataSourceName="jdbc/pgDatasource"
-       debug="9"
        localDataSource="true"
        roleNameCol="role_name"
        userCredCol="user_pass"
