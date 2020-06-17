@@ -9,13 +9,13 @@
           maxActive="20"
           maxIdle="10"
           maxWait="-1"/>
+    <Realm className="org.apache.catalina.realm.DataSourceRealm"
+           dataSourceName="jdbc/pgDatasource"
+           localDataSource="true"
+           roleNameCol="role_name"
+           userCredCol="user_pass"
+           userNameCol="user_name"
+           userRoleTable="jaas.user_roles"
+           userTable="jaas.users"/>
 
-<Realm className="org.apache.catalina.realm.DataSourceRealm"
-       dataSourceName="jdbc/pgDatasource"
-       localDataSource="true"
-       roleNameCol="role_name"
-       userCredCol="user_pass"
-       userNameCol="user_name"
-       userRoleTable="jaas.user_roles"
-       userTable="jaas.users"/>
 </Context>
